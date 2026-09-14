@@ -130,7 +130,7 @@ class Window(QMainWindow):
         self.config.save_to_yml(config_file)
 
     def init_ui(self):
-        self.setWindowTitle("RoadCodeLock")
+        self.setWindowTitle("PassCode")
 
         self.central_widget = QWidget()
         self.central_widget.setObjectName("CentralWidget")
@@ -166,7 +166,7 @@ class Window(QMainWindow):
         header_layout.setContentsMargins(10, 3, 10, 3)
         header_layout.setSpacing(10)
 
-        title = QLabel("ROADCODE LOCK")
+        title = QLabel("PASSCODE")
         title.setObjectName("AppTitle")
 
         self.progress_bar = QProgressBar()
