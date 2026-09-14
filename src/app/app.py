@@ -4,7 +4,7 @@ import sys
 from typing import Literal, cast
 
 from PySide6.QtCore import QPoint, QRect, QSize, Qt, QUrl
-from PySide6.QtGui import QPainter, QPixmap
+from PySide6.QtGui import QCloseEvent, QPainter, QPixmap
 from PySide6.QtMultimedia import QAudioOutput, QMediaPlayer
 from PySide6.QtMultimediaWidgets import QVideoWidget
 from PySide6.QtWidgets import (
@@ -23,6 +23,7 @@ from PySide6.QtWidgets import (
 )
 
 from app.config_model import Config
+from app.keyboard_blocker import lock_keyboard, unlock_keyboard
 from common.paths import assets_folder_path, configs_folder_path
 from models.question_model import Question, SubQuestion
 
@@ -88,9 +89,15 @@ class Window(QMainWindow):
             getattr(self.config, "theme", "dark") or "dark"
         )
 
+        # Flag pour autoriser la fermeture de la fenêtre
+        self._allow_close = False
+
         self.init_ui()
         self.apply_theme(self.current_theme, save_config=False) # type: ignore
         self.set_question()
+
+        # Verrouille le clavier après l'initialisation de l'UI
+        lock_keyboard()
 
     def apply_theme(self, theme_name: Literal["dark", "light"], save_config: bool = True):
         """Applique la feuille de style correspondant au thème et met à jour l'UI."""
@@ -319,7 +326,7 @@ class Window(QMainWindow):
         self.unlock_button = QPushButton("Déverrouiller le PC")
         self.unlock_button.setObjectName("UnlockButton")
         self.unlock_button.setCursor(Qt.CursorShape.PointingHandCursor)
-        self.unlock_button.clicked.connect(self.close)
+        self.unlock_button.clicked.connect(self._close)
         self.buttons_stack.addWidget(self.unlock_button)
 
         footer_layout.addStretch()
@@ -412,6 +419,21 @@ class Window(QMainWindow):
             self.buttons_stack.setCurrentWidget(self.unlock_button)
         else:
             self.buttons_stack.setCurrentWidget(self.next_button)
+
+    def _close(self):
+        """Autorise la fermeture de la fenêtre."""
+        self._allow_close = True
+        self.close()
+
+    def closeEvent(self, event: QCloseEvent):
+        """Gère l'événement de fermeture de la fenêtre."""
+        if not self._allow_close:
+            event.ignore()
+            return
+
+        # Déverrouille le clavier et les raccourcis système
+        unlock_keyboard()
+        event.accept()
 
 
 def main():
