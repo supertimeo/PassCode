@@ -82,7 +82,7 @@ async def extract_question_data(page: Page) -> Question:
         raise MediaSaveError(f"Failed to convert media to bytes: {question_media_name}") from e
 
     try:
-        question_title_div = question_content_div.css_first("div.questiontitle")
+        question_title_div = question_content_div.css_first("div#questiontitle")
 
         form_element = question_content_div.css_first("form#questions")
         if form_element is None:
@@ -96,7 +96,7 @@ async def extract_question_data(page: Page) -> Question:
         question_data = Question(
             question_media_name = str(Path(question_media_name).with_suffix(".png" if is_img else ".mp4")),
             question_media_is_image = is_img,
-            question_title = question_title_div.text().replace(' ', ' ').replace(' ', ' ').strip() if question_title_div is not None else None,
+            question_title = question_title_div.text().replace(' ', ' ').replace(' ', ' ').strip() if "display:none" not in question_title_div.attributes.get("style", "").replace(" ", "").lower() else None,
             sub_questions = tuple(
                 SubQuestion(
                     sub_question = sub_question_div.css_first("p").text().replace(' ', ' ').strip() if sub_question_div.css_first("p") is not None else None,
@@ -203,7 +203,6 @@ async def main():
 
             results = await asyncio.gather(
                 *workers,
-                return_exceptions=True
             )
 
         finally:
