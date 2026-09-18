@@ -46,24 +46,35 @@ a = Analysis(
 
 pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 
+# Mode "onedir" : l'exe reste léger, les fichiers restent extraits sur disque
+# (pas de décompression à chaque lancement -> démarrage quasi-instantané,
+# contrairement au mode "onefile" qui doit tout ré-extraire dans un dossier
+# temporaire à chaque exécution)
 exe = EXE(
     pyz,
     a.scripts,
-    a.binaries,
-    a.zipfiles,
-    a.datas,
     [],
+    exclude_binaries=True,
     name="PassCode",
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
-    upx_exclude=[],
-    runtime_tmpdir=None,
     console=False,
     disable_windowed_traceback=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=None,
+    icon=str(project_root / "assets" / "PassCode_icon.ico"),
+)
+
+coll = COLLECT(
+    exe,
+    a.binaries,
+    a.zipfiles,
+    a.datas,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    name="PassCode",
 )

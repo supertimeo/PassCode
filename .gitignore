@@ -8,5 +8,6 @@ uv.lock
 /binaries/
 /configs/
 /CLAUDE.md
-/dist/
 /build/
+/build_tools/
+/dist/
