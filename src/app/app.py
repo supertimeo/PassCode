@@ -3,7 +3,7 @@ import random
 import sys
 from typing import Literal, cast
 
-from PySide6.QtCore import QPoint, QRect, QSize, Qt, QUrl
+from PySide6.QtCore import QPoint, QRect, QSize, Qt, QTimer, QUrl
 from PySide6.QtGui import QCloseEvent, QPainter, QPixmap
 from PySide6.QtMultimedia import QAudioOutput, QMediaPlayer
 from PySide6.QtMultimediaWidgets import QVideoWidget
@@ -23,6 +23,7 @@ from PySide6.QtWidgets import (
 )
 
 from app.config_model import Config
+from app.foreground_forcer import force_window_foreground
 from app.keyboard_blocker import lock_keyboard, unlock_keyboard
 from common.paths import assets_folder_path, configs_folder_path
 from models.question_model import Question, SubQuestion
@@ -155,7 +156,25 @@ class Window(QMainWindow):
         # 5. Footer / Bouton Valider (Ancré en bas)
         self.init_footer_actions(root_layout)
 
+        # Reste toujours au-dessus des autres fenêtres : le hook clavier bloque
+        # les raccourcis système, mais si une autre fenêtre garde le focus
+        # au premier plan, l'utilisateur peut continuer à interagir avec elle
+        # sans que le verrouillage clavier n'y change quoi que ce soit.
+        self.setWindowFlag(Qt.WindowType.WindowStaysOnTopHint, True)
         self.showFullScreen()
+        self.force_foreground()
+
+        # Ré-affirme périodiquement le focus, au cas où une autre fenêtre
+        # parviendrait quand même à passer devant (ex: notification système).
+        self._foreground_timer = QTimer(self)
+        self._foreground_timer.timeout.connect(self.force_foreground)
+        self._foreground_timer.start(1500)
+
+    def force_foreground(self):
+        """Force la fenêtre au premier plan avec le focus (contourne le foreground lock Windows)."""
+        force_window_foreground(int(self.winId()))
+        self.raise_()
+        self.activateWindow()
 
     def init_header(self, parent_layout: QVBoxLayout):
         header_card = QFrame()
@@ -430,6 +449,8 @@ class Window(QMainWindow):
         if not self._allow_close:
             event.ignore()
             return
+
+        self._foreground_timer.stop()
 
         # Déverrouille le clavier et les raccourcis système
         unlock_keyboard()
