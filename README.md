@@ -2,35 +2,30 @@
 
 Application de quiz en kiosque sécurisé pour l'apprentissage du code de la route français. L'interface est verrouillée au niveau du système d'exploitation pour empêcher l'accès à d'autres fonctionnalités pendant le test.
 
-## ⚠️ Notice Légale Importante
+## ⚠️ Notice Légale Importante — Statut du contenu en cours de clarification
 
-**Cette application utilise du contenu public provenant de securite-routiere.gouv.fr**
+**PassCode est un projet indépendant, non officiel, et n'est ni développé, ni édité, ni approuvé, ni affilié à l'État français, au Ministère de l'Intérieur, à la Gendarmerie Nationale ou à toute administration publique.**
 
-- **Contenu utilisé**: Questions et réponses du quiz "Je repasse le code"
-- **Source**: https://www.securite-routiere.gouv.fr/les-medias/nos-quiz/je-repasse-le-code
-- **Licence**: Licence Ouverte 2.0 (Open Licence)
-- **Organisme public**: Ministère de l'Intérieur - Direction générale de la Gendarmerie Nationale
-- **Attribution requise**: Oui
+Seules les **questions et réponses du quiz** ("Je repasse le code") affichées dans l'application sont reprises d'une source publique :
 
-### Attribution
+- **Contenu réutilisé** : Questions et réponses du quiz "Je repasse le code"
+- **Source du contenu** : https://www.securite-routiere.gouv.fr/les-medias/nos-quiz/je-repasse-le-code
+- **Éditeur/propriétaire du contenu source** : Gouvernement français — Délégation à la sécurité routière (PassCode lui-même n'est pas édité par cet organisme)
 
-Cette application réutilise le contenu pédagogique officiel du Gouvernement français sous la **Licence Ouverte 2.0**. 
+### ⚠️ Statut du droit d'auteur : en cours de vérification
 
-Données originales: © Gouvernement français - Ministère de l'Intérieur - Direction générale de la Gendarmerie Nationale
-Source: https://www.securite-routiere.gouv.fr
+Ce projet supposait initialement que ce contenu était couvert par la **Licence Ouverte 2.0**, qui autorise la réutilisation libre sous simple attribution. **Cette hypothèse s'est révélée incertaine** : il est possible que ces questions soient en réalité protégées par le droit d'auteur classique, sans réutilisation libre automatique.
 
-### Licence Ouverte 2.0
+**Une demande d'autorisation de réutilisation a été envoyée à la Délégation à la sécurité routière.** Tant qu'une réponse officielle n'a pas été obtenue :
 
-Vous êtes libres de:
-- ✅ Réutiliser les contenus
-- ✅ Adapter et transformer
-- ✅ Utiliser à titre commercial ou non-commercial
+- Le statut juridique exact du contenu du quiz reste **incertain**
+- Ce dépôt ne doit pas être considéré comme ayant une autorisation confirmée de réutilisation
+- Cette section sera mise à jour dès réception d'une réponse (autorisation, refus, ou conditions spécifiques)
 
-Sous condition de:
-- 🏷️ **Mention de la source obligatoire** (Gouvernement français)
-- 🔗 **Lien vers la Licence Ouverte 2.0** (http://www.etalab.gouv.fr/licence-ouverte-open-licence)
+Contenu original : © Gouvernement français — Délégation à la sécurité routière
+Source : https://www.securite-routiere.gouv.fr
 
-Pour plus d'informations: http://www.etalab.gouv.fr/
+L'application PassCode (code, interface, système de verrouillage) est un développement indépendant qui n'engage que ses auteurs et n'est pas concernée par cette incertitude — seul le contenu du quiz (questions/réponses/médias) l'est.
 
 ## 📋 Caractéristiques principales
 
@@ -288,9 +283,10 @@ Créez une issue ou PR.
 
 ## ⚖️ Conditions d'utilisation
 
-1. **Respect de la Licence Ouverte 2.0**
-   - Attribution du Gouvernement français obligatoire
-   - Source: securite-routiere.gouv.fr
+1. **Statut du contenu du quiz**
+   - Le statut juridique du contenu (questions/réponses) est **en cours de clarification** — voir la [Notice Légale](#️-notice-légale-importante--statut-du-contenu-en-cours-de-clarification) en tête de ce document
+   - Une demande d'autorisation a été adressée à la Délégation à la sécurité routière
+   - Source : securite-routiere.gouv.fr
 
 2. **Interdictions**
    - ❌ Utilisation malveillante
@@ -311,20 +307,19 @@ Pour signaler un bug ou une question:
 
 ## 📜 Licence
 
-**Code**: MIT License (voir fichier `LICENSE`)
+**Code de PassCode** (application, interface, système de verrouillage) : MIT License (voir fichier `LICENSE`) — propriété de ses auteurs, sans lien avec le Gouvernement français.
 
-**Contenu pédagogique**: Licence Ouverte 2.0 - Gouvernement français
-- © Ministère de l'Intérieur
-- Source: https://www.securite-routiere.gouv.fr
+**Contenu du quiz réutilisé** (questions/réponses/médias) : statut juridique **en cours de clarification**, voir la [Notice Légale](#️-notice-légale-importante--statut-du-contenu-en-cours-de-clarification) en tête de ce document.
+- © Gouvernement français — Délégation à la sécurité routière
+- Source : https://www.securite-routiere.gouv.fr
+- Une demande d'autorisation de réutilisation a été adressée à la Délégation à la sécurité routière ; ce README sera mis à jour dès réponse.
 
 ## 👨‍💻 Auteur
 
-PassCode - Application de quiz sécurisé pour l'apprentissage du code de la route
-
-Réutilisation du contenu pédagogique officiel français sous Licence Ouverte 2.0
+PassCode est une application de quiz indépendante pour l'apprentissage du code de la route, développée par ses auteurs. Elle réutilise les questions publiées par le Gouvernement français — elle n'est ni développée, ni éditée, ni approuvée par celui-ci.
 
 ---
 
-**Disclaimer**: Cette application n'est pas officielle. C'est une réutilisation du contenu public selon la Licence Ouverte 2.0. Le contenu reste la propriété du Gouvernement français.
+**Disclaimer** : PassCode n'est **pas** une application officielle et n'est affiliée à aucune administration publique. Le contenu du quiz (questions/réponses) provient d'une source publique dont le statut de réutilisation est en cours de clarification auprès de la Délégation à la sécurité routière ; les droits sur ce contenu restent la propriété du Gouvernement français. Le code de l'application est un développement indépendant.
 
-Pour plus d'informations sur le vrai test du code de la route: https://www.securite-routiere.gouv.fr/
+Pour le vrai test officiel du code de la route : https://www.securite-routiere.gouv.fr/
