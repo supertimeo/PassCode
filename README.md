@@ -32,10 +32,12 @@ Source : https://www.securite-routiere.gouv.fr
 
 L'application PassCode (code, interface, système de verrouillage) est un développement indépendant qui n'engage que ses auteurs et n'est pas concernée par cette incertitude — seul le contenu du quiz (questions/réponses/médias) l'est.
 
+> 📄 Les conditions d'utilisation complètes (code ET contenu du quiz : attribution, interdiction de modification, statut juridique) sont fixées par le fichier [`LICENSE`](LICENSE), qui fait foi. Le résumé ci-dessous n'a qu'une valeur informative.
+
 ## Conditions d'utilisation
 
 1. **Statut du contenu du quiz**
-   - Le statut juridique du contenu (questions/réponses) est **en cours de clarification** — voir la [Notice Légale](#notice-légale-importante--statut-du-contenu-en-cours-de-clarification) ci-dessus
+   - Le statut juridique du contenu (questions/réponses) est **en cours de clarification** — voir [`LICENSE`](LICENSE), Part 2
    - Une demande d'autorisation a été adressée à la Délégation à la sécurité routière
    - Source : securite-routiere.gouv.fr
 
@@ -43,6 +45,7 @@ L'application PassCode (code, interface, système de verrouillage) est un dével
    - ❌ Utilisation malveillante
    - ❌ Contournement des mesures de sécurité
    - ❌ Modification des droits d'auteur
+   - ❌ Modification du contenu du quiz (questions, réponses, explications, médias) — voir [`LICENSE`](LICENSE), Part 2, section 3
 
 3. **Responsabilité**
    - Cette application est fournie "tel quel"
@@ -51,12 +54,15 @@ L'application PassCode (code, interface, système de verrouillage) est un dével
 
 ## Licence
 
-**Code de PassCode** (application, interface, système de verrouillage) : MIT License (voir fichier `LICENSE`) — propriété de ses auteurs, sans lien avec le Gouvernement français.
+Le fichier [`LICENSE`](LICENSE) unique de ce dépôt comporte deux parties distinctes :
 
-**Contenu du quiz réutilisé** (questions/réponses/médias) : statut juridique **en cours de clarification**, voir la [Notice Légale](#notice-légale-importante--statut-du-contenu-en-cours-de-clarification) ci-dessus.
+**Part 1 — Code de PassCode** (application, interface, système de verrouillage) : licence permissive de type MIT, propriété de ses auteurs, sans lien avec le Gouvernement français.
+
+**Part 2 — Contenu du quiz réutilisé** (questions/réponses/médias) : conditions spécifiques, distinctes de la Part 1. Résumé :
+- Statut juridique **en cours de clarification**
 - © Gouvernement français — Délégation à la sécurité routière
 - Source : https://www.securite-routiere.gouv.fr
-- Une demande d'autorisation de réutilisation a été adressée à la Délégation à la sécurité routière ; ce README sera mis à jour dès réponse.
+- Toute modification du contenu est interdite, y compris en cas de fork ou de modification du code (Part 1)
 
 ## Auteur et disclaimer
 
@@ -328,7 +334,8 @@ selectolax>=0.4.11   - Parsing CSS
 Les contributions sont bienvenues! Pour:
 - Signaler un bug
 - Proposer une amélioration
-- Ajouter des questions
 - Corriger des traductions
+
+Le contenu du quiz (questions, réponses, explications, médias) ne peut pas être modifié ni étendu — voir [`LICENSE`](LICENSE), Part 2.
 
 Créez une issue ou PR.

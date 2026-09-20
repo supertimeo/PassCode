@@ -1,21 +1,110 @@
-MIT License
+PassCode License
+(Based on the MIT License, with additional terms covering third-party quiz content)
 
 Copyright (c) 2026 PassCode Contributors
 
+SCOPE
+
+This license has two parts:
+
+  Part 1 governs the PassCode source code (the "Software"): the contents
+  of the src/, build_tools/ directories, and other project configuration
+  files.
+
+  Part 2 governs the quiz content (the "Content"): the questions, answers,
+  explanations, and media files (images, videos) located in the assets/
+  directory. The Content originates from a third-party public source and
+  is NOT owned by the PassCode Contributors. Part 2 applies regardless of
+  Part 1, including to any copy, fork, or redistribution of this
+  repository, even where the Software is itself modified or redistributed
+  under Part 1.
+
+================================================================================
+PART 1 — SOFTWARE (MIT License terms)
+================================================================================
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+of this Software and associated documentation files, to deal in the
+Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+This Part 1 does NOT extend to the Content defined in Part 2 below.
+
+================================================================================
+PART 2 — QUIZ CONTENT (additional terms)
+================================================================================
+
+1. ORIGIN AND OWNERSHIP
+
+The Content is taken from the "Je repasse le code" quiz, published by:
+  French Government — Délégation à la sécurité routière (road safety
+  delegation)
+  Source: https://www.securite-routiere.gouv.fr/les-medias/nos-quiz/je-repasse-le-code
+
+Rights to the Content belong to its original publisher. PassCode is not
+developed, edited, or endorsed by this organization.
+
+2. LEGAL STATUS: UNDER CLARIFICATION
+
+This project initially assumed the Content was covered by the French
+"Licence Ouverte 2.0" (Open Licence), which allows free reuse with simple
+attribution. This assumption has proven uncertain: the Content may in fact
+be protected by standard copyright, without automatic free reuse rights.
+
+A request for reuse authorization has been sent to the Délégation à la
+sécurité routière. Until an official response is obtained:
+
+  - The exact legal status of the Content remains uncertain.
+  - This repository should not be considered to have confirmed
+    authorization to reuse the Content.
+  - No release (executable, installer) of PassCode is published.
+  - This section will be updated upon receiving a response
+    (authorization, refusal, or specific conditions).
+
+3. NO MODIFICATION
+
+The Content (questions, answers, explanations, media) MUST NOT be
+modified, altered, adapted, translated, or extended (e.g. adding new
+questions) in any form. It must be kept and redistributed strictly
+identical to its original version.
+
+This restriction applies fully to any copy, fork, or redistribution of
+this repository, including where the Software is itself modified, adapted,
+or redistributed under the terms of Part 1. The right to modify the
+Software under Part 1 does not, under any circumstance, grant any right to
+modify the Content, even partially.
+
+4. ATTRIBUTION
+
+Any redistribution of the Content must credit:
+  © French Government — Délégation à la sécurité routière
+  Source: https://www.securite-routiere.gouv.fr
+
+5. PROHIBITED USES
+
+  - Any malicious or misleading use.
+  - Any presentation implying that the Content, or the PassCode
+    application itself, is an official production of the French State or
+    a public administration.
+  - Any modification as described in Section 3 above.
+
+6. NO WARRANTY
+
+The Content is provided "as is", without warranty of accuracy or
+currency. The official questions may evolve independently of this
+repository.
+
+For the official French driving theory test: https://www.securite-routiere.gouv.fr/
