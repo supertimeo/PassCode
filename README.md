@@ -20,6 +20,7 @@ Ce projet supposait initialement que ce contenu était couvert par la **Licence 
 
 - Le statut juridique exact du contenu du quiz reste **incertain**
 - Ce dépôt ne doit pas être considéré comme ayant une autorisation confirmée de réutilisation
+- **Aucune release (exécutable, installateur) de PassCode ne sera publiée avant l'obtention de cette autorisation** — seul le code source est disponible dans ce dépôt
 - Cette section sera mise à jour dès réception d'une réponse (autorisation, refus, ou conditions spécifiques)
 
 Contenu original : © Gouvernement français — Délégation à la sécurité routière
@@ -53,7 +54,9 @@ L'application PassCode (code, interface, système de verrouillage) est un dével
 
 ## 🚀 Installation
 
-### Option 1 : Installateur Windows (Recommandé)
+> ⚠️ **Aucune release n'est publiée pour le moment** (voir la Notice Légale ci-dessus) : les options 1 et 2 ci-dessous décrivent l'installation une fois une release disponible. En attendant l'autorisation de la Délégation à la sécurité routière, seule l'**Option 3 (code source)** est utilisable.
+
+### Option 1 : Installateur Windows (Recommandé, à venir)
 
 1. Téléchargez `PassCode-Setup.exe`
 2. Double-cliquez pour lancer l'installation
@@ -62,7 +65,7 @@ L'application PassCode (code, interface, système de verrouillage) est un dével
    - ☐ Lancer au démarrage du PC
 4. Cliquez "Installer"
 
-### Option 2 : Exécutable portable
+### Option 2 : Exécutable portable (à venir)
 
 1. Téléchargez `PassCode.exe`
 2. Exécutez directement (aucune installation)
