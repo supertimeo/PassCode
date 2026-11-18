@@ -392,9 +392,13 @@ class Window(QMainWindow):
             choice_widget.deleteLater()
         choices_list.clear()
 
-        if sub_q.sub_question:
+        if len(sub_q.choices) > 0:
             card.show()
-            label.setText(sub_q.sub_question)
+            if sub_q.sub_question:
+                label.show()
+                label.setText(sub_q.sub_question)
+            else:
+                label.hide()
             for item in sub_q.choices:
                 cb = ChoiceCard(item.choice)
                 choices_layout.addWidget(cb)
