@@ -1,11 +1,11 @@
 import json
 import random
 import sys
-from typing import Literal, cast
+from typing import Literal
 
 from PySide6.QtCore import QPoint, QRect, QSize, Qt, QTimer, QUrl
 from PySide6.QtGui import QCloseEvent, QPainter, QPixmap
-from PySide6.QtMultimedia import QAudioOutput, QMediaPlayer
+from PySide6.QtMultimedia import QAudioOutput, QMediaPlayer, QVideoFrame
 from PySide6.QtMultimediaWidgets import QVideoWidget
 from PySide6.QtWidgets import (
     QApplication,
@@ -85,10 +85,7 @@ class Window(QMainWindow):
         self.total_target = self.config.nb_questions
 
         # Récupération du thème enregistré (défaut : "dark")
-        self.current_theme: Literal["dark", "light"] = cast(
-            Literal["dark", "light"],
-            getattr(self.config, "theme", "dark") or "dark"
-        )
+        self.current_theme: Literal["dark", "light"] = getattr(self.config, "theme", "dark") or "dark"
 
         # Flag pour autoriser la fermeture de la fenêtre
         self._allow_close = False
@@ -209,6 +206,16 @@ class Window(QMainWindow):
 
         parent_layout.addWidget(header_card, stretch=0)
 
+    def save_last_frame(self, frame: QVideoFrame):
+        image = frame.toImage()
+
+        if not image.isNull():
+            self.last_frame = image.copy()
+
+    def on_media_status_changed(self, status):
+        if status == QMediaPlayer.MediaStatus.EndOfMedia and self.last_frame is not None:
+            self.video_sink.setVideoFrame(QVideoFrame(self.last_frame))
+
     def init_media_section(self, parent_layout: QVBoxLayout):
         self.media_container = QFrame()
         self.media_container.setObjectName("MediaContainer")
@@ -236,6 +243,18 @@ class Window(QMainWindow):
         self.audio_output = QAudioOutput()
         self.media_player.setAudioOutput(self.audio_output)
         self.audio_output.setVolume(1.0)
+
+        # Récupération du QVideoSink
+        self.video_sink = self.media_watch.videoSink()
+
+        # Stockage de la dernière frame
+        self.last_frame = None
+
+        # Connexion des signaux
+        self.video_sink.videoFrameChanged.connect(self.save_last_frame)
+        self.media_player.mediaStatusChanged.connect(self.on_media_status_changed)
+
+
 
         # Stretch=1 : absorbe tout l'espace libre restant
         parent_layout.addWidget(self.media_container, stretch=1)
@@ -360,6 +379,7 @@ class Window(QMainWindow):
             self.media_image.set_pixmap(QPixmap(str(path)))
             self.media_stack.setCurrentWidget(self.media_image)
         else:
+            self.last_frame = None
             self.media_player.setSource(QUrl.fromLocalFile(path))
             self.media_stack.setCurrentWidget(self.media_watch)
             self.media_player.play()
